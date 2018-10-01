@@ -1,13 +1,12 @@
 package com.gmail.sergiusz.mazan.ships.server;
 
-import java.io.IOException;
 import java.net.Socket;
 import java.util.List;
 
-import com.gmail.sergiusz.mazan.ships.communication.Field;
-import com.gmail.sergiusz.mazan.ships.communication.FieldImpl;
-import com.gmail.sergiusz.mazan.ships.communication.ShipSize;
-import com.gmail.sergiusz.mazan.ships.communication.ShipsCheckList;
+import com.gmail.sergiusz.mazan.ships.model.Field;
+import com.gmail.sergiusz.mazan.ships.model.ServerPlayer;
+import com.gmail.sergiusz.mazan.ships.model.ShipSize;
+import com.gmail.sergiusz.mazan.ships.model.ShipsCheckList;
 
 public class PlayerBuilder {
 	
@@ -31,10 +30,10 @@ public class PlayerBuilder {
 		this.socket = socket;
 		return this;
 	}
-	
-	public Player build() throws IOException {
-		Field field = new FieldImpl(width, height);
-		ShipsCheckList checkList = new ShipsCheckListImpl(sizeList);
-		return new Player(socket, field, checkList);
+		
+	public ServerPlayer build() {
+		Field field = new Field(width, height);
+		ShipsCheckList checkList = new ShipsCheckList(sizeList);
+		return new ServerPlayer(field, checkList);
 	}
 }

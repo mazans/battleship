@@ -40,7 +40,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.gmail.sergiusz.mazan.ships</groupId>
-			<artifactId>communication</artifactId>
+			<artifactId>commons</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
