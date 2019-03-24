@@ -13,8 +13,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<maven.compiler.source>9</maven.compiler.source>
-		<maven.compiler.target>9</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 
 		<junit.jupiter.version>5.3.1</junit.jupiter.version>
 	</properties>
@@ -50,6 +50,28 @@
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.0</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.gmail.sergiusz.mazan.ships.client.Main</mainClass>
+						</manifest>
+				    	</archive>
+				    	<descriptorRefs>
+				      		<descriptorRef>jar-with-dependencies</descriptorRef>
+				    	</descriptorRefs>
+			  	</configuration>
+			  	<executions>
+			    		<execution>
+			      			<id>make-assembly</id>
+			      			<phase>package</phase>
+			      			<goals>
+							<goal>single</goal>
+			      			</goals>
+			    		</execution>
+			  	</executions>
 			</plugin>
 		</plugins>
 	</build>
